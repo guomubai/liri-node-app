@@ -10,13 +10,12 @@ var request = require('request');
 var moment = require('moment');
 var fs = require("fs");
 
+
+var keys = require('./keys');
+
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Setting up the Spotify search function
-
-var spotify = new Spotify({
-	id: "9a48dc7034ad405dad142dc9fa323742",
-	secret: "a13793c49c7042ab99e896d2f0076106"
-});
+var spotify = new Spotify(keys.spotify);
 
 var getArtistNames = function (artist) {
 	return artist.name;
