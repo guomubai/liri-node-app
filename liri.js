@@ -99,7 +99,7 @@ var getConcert = function (concertName) {
 var doWhatItSays = function () {
 	fs.readFile("random.txt", "utf8", function (err, data) {
 		if (err) throw err;
-		
+
 		var dataArray = data.split(',');
 		if (dataArray.length == 2) {
 			pick(dataArray[0], dataArray[1]);
@@ -118,6 +118,11 @@ var doWhatItSays = function () {
 var pick = function (caseData, functionData) {
 	switch (caseData) {
 		case "spotify-this-song":
+			if (functionData === "") {
+				functionData = "The Sign"
+				searchSpotify(functionData);
+				break;
+			}
 			searchSpotify(functionData);
 			break;
 		case "movie-this":
